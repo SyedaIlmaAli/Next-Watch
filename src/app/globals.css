@@ -19,32 +19,63 @@ h1, h2, h3{
   font-weight: bold;
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
   color: white;
   background-color: #0070f3;
+  position: relative; /* Ensures child positioning works as expected */
 }
 
-.header .logo{
+.header .logo {
   font-size: 24px;
   color: white;
 }
 
-.header nav{
-  display: flex;
-  gap: 40px;
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  position: absolute; /* Position relative to the header */
+  top: 20px; /* Align with header padding */
+  right: 20px; /* Place in the top-right corner */
 }
 
-.header nav a{
+.header nav {
+  display: flex;
+  gap: 40px;
+  transition: max-height 0.3s ease-in-out; /* Smooth open/close effect */
+}
+
+.header nav a {
   color: white;
   font-weight: bold;
 }
 
-.header nav a:hover{
+.header nav a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .header nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Prevent content from overflowing */
+  }
+
+  .header nav.open {
+    max-height: 200px; /* Adjust based on content size */
+  }
 }
 
 /* Footer */
@@ -222,7 +253,6 @@ footer p {
   cursor: pointer;
   width: 100%;
 }
-
 .contact-form button:hover {
   background-color: #005bb5;
 }
@@ -246,20 +276,6 @@ footer p {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column; /* Stack logo and navbar vertically */
-    text-align: center; /* Center-align content */
-  }
-
-  .header .logo {
-    margin-bottom: 10px; /* Add spacing between logo and navbar */
-  }
-
-  .header nav {
-    flex-direction: column; /* Stack nav links vertically */
-    gap: 20px; /* Add spacing between nav links */
-    align-items: center;
-  }
 
   .hero {
     height: 70vh;
