@@ -73,8 +73,14 @@ h1, h2, h3{
     overflow: hidden; /* Prevent content from overflowing */
   }
 
+  .open{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin-right: -5;
+  }
+
   .header nav.open {
-    max-height: 200px; /* Adjust based on content size */
+    max-height: 250px; /* Adjust based on content size */
   }
 }
 
